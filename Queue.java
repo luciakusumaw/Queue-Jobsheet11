@@ -1,5 +1,3 @@
-import javax.xml.crypto.Data;
-
 public class Queue {
     int data[], front, rear, size, max;
 
@@ -58,43 +56,44 @@ public class Queue {
         } 
     } 
 
-    void enqueue(int dt){ 
-        if(!isFull()){ 
-            if(isEmpty()){ 
-                front=rear=0; 
-            }else{ 
-                if(rear==max-1){ 
-                    rear=0; 
-                }else{ 
-                    rear++; 
-                } 
-            } 
-            data[rear]=dt; 
-            size++; 
-            System.out.printf("%d is successfully added at index %d\n", dt, rear); 
-        }else{ 
-            System.out.println("Queue is full!!!"); 
-        } 
-    } 
+    void enqueue(int dt) {
+        if (!isFull()) {
+            if (isEmpty()) {
+                front = rear = 0;
+            } else {
+                if (rear == max - 1) {
+                    rear = 0;
+                } else {
+                    rear++;
+                }
+            }
+            data[rear] = dt;
+            size++;
+            System.out.printf("%d is successfully added at index %d\n", dt, rear);
+        } else {
+            System.out.println("Queue is full!!! Program stopping...");
+            System.exit(0);
+        }
+    }
 
-    int dequeue(){ 
-        int dt = 0; 
-        if(!isEmpty()){ 
-            dt = data[front]; 
-            size--; 
-            if(isEmpty()){ 
-                front=rear=-1; 
-            }else{ 
-                if(front==max-1){ 
-                    front=0; 
-                }else{ 
-                    front++; 
-                } 
-            } 
-        }else{ 
-            System.out.println("Queue is empty!!!"); 
-        } 
-        return dt; 
-    } 
-
+    int dequeue() {
+        int dt = 0;
+        if (!isEmpty()) {
+            dt = data[front];
+            size--;
+            if (isEmpty()) {
+                front = rear = -1;
+            } else {
+                if (front == max - 1) {
+                    front = 0;
+                } else {
+                    front++;
+                }
+            }
+        } else {
+            System.out.println("Queue is empty!!! Program stopping...");
+            System.exit(0);
+        }
+        return dt;
+    }
 }
